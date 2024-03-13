@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
-        title: 'Namer App',
+        title: 'Flutter_application_1',
         theme: ThemeData(
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
@@ -44,53 +44,6 @@ class MyAppState extends ChangeNotifier {
     notifyListeners();
   }
 }
-// Sample Code 1
-// class MyHomePage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     var appState = context.watch<MyAppState>();
-//     var pair = appState.current;
-
-//     IconData iconData;
-//     if (appState.favorites.contains(pair)) {
-//       iconData = Icons.favorite;
-//     } else {
-//       iconData = Icons.favorite_border;
-//     }
-
-//     return Scaffold(
-//       body: Center(
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             BigCard(pair: pair),
-//             SizedBox(height: 10),
-//             Row(
-//               mainAxisSize: MainAxisSize.min,
-//               children: [
-//                 ElevatedButton.icon(
-//                   onPressed: () {
-//                     appState.toggleFavorite();
-//                   },
-//                   icon: Icon(iconData),
-//                   label: Text('Like'),
-//                 ),
-//                 SizedBox(width: 10),
-//                 ElevatedButton(
-//                   onPressed: () {
-//                     appState.getNext();
-//                   },
-//                   child: Text('Next'),
-//                 )
-//               ],
-//             )
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-// ...
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -106,10 +59,8 @@ class _MyHomePageState extends State<MyHomePage> {
     switch (selectedIndex) {
       case 0:
         page = GeneratorPage();
-        break;
       case 1:
         page = FavoritePage();
-        break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
     }
@@ -221,7 +172,6 @@ class FavoritePage extends StatelessWidget {
   }
 }
 
-// ...
 class BigCard extends StatelessWidget {
   const BigCard({
     super.key,
@@ -246,3 +196,52 @@ class BigCard extends StatelessWidget {
     );
   }
 }
+
+// Sample Code 1
+// class MyHomePage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     var appState = context.watch<MyAppState>();
+//     var pair = appState.current;
+
+//     IconData iconData;
+//     if (appState.favorites.contains(pair)) {
+//       iconData = Icons.favorite;
+//     } else {
+//       iconData = Icons.favorite_border;
+//     }
+
+//     return Scaffold(
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             BigCard(pair: pair),
+//             SizedBox(height: 10),
+//             Row(
+//               mainAxisSize: MainAxisSize.min,
+//               children: [
+//                 ElevatedButton.icon(
+//                   onPressed: () {
+//                     appState.toggleFavorite();
+//                   },
+//                   icon: Icon(iconData),
+//                   label: Text('Like'),
+//                 ),
+//                 SizedBox(width: 10),
+//                 ElevatedButton(
+//                   onPressed: () {
+//                     appState.getNext();
+//                   },
+//                   child: Text('Next'),
+//                 )
+//               ],
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+// ...
+
